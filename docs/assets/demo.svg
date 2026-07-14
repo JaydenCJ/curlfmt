@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="990" height="430" viewBox="0 0 990 430" font-family="Menlo, Consolas, monospace" font-size="12">
+  <rect width="990" height="430" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="495" y="27" fill="#8b949e" text-anchor="middle" font-size="12">curlfmt — gofmt for the world's most-pasted command</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="58"><tspan fill="#7ee787">$</tspan> echo "curl -sSLX POST http://127.0.0.1:8080/v1/items \</text>
+    <text x="24" y="76">    -H 'content-type:application/json' -d @body.json" | curlfmt</text>
+    <text x="24" y="106"><tspan fill="#79c0ff">curl</tspan> <tspan fill="#d2a8ff">--location --show-error --silent</tspan> \</text>
+    <text x="24" y="124">  <tspan fill="#d2a8ff">--request</tspan> POST \</text>
+    <text x="24" y="142">  <tspan fill="#d2a8ff">--header</tspan> <tspan fill="#a5d6ff">'Content-Type: application/json'</tspan> \</text>
+    <text x="24" y="160">  <tspan fill="#d2a8ff">--data</tspan> @body.json \</text>
+    <text x="24" y="178">  <tspan fill="#a5d6ff">http://127.0.0.1:8080/v1/items</tspan></text>
+    <text x="24" y="214"><tspan fill="#7ee787">$</tspan> curlfmt lint docs/api.md</text>
+    <text x="24" y="244">docs/api.md:12: <tspan fill="#ffa657">CF002 warning</tspan>: --request POST is implied by the data option; drop it</text>
+    <text x="24" y="262">docs/api.md:12: <tspan fill="#ffa657">CF006 warning</tspan>: --silent without --show-error hides curl's own error messages; add --show-error</text>
+    <text x="24" y="280">docs/api.md:30: <tspan fill="#8b949e">CF007 info</tspan>: without --fail or --fail-with-body, HTTP 4xx/5xx still exit 0 (dangerous in CI)</text>
+    <text x="24" y="298">docs/api.md:30: <tspan fill="#f85149">CF009 error</tspan>: unquoted '&amp;' in the query string backgrounds the command and drops the rest of the URL; quote the URL</text>
+    <text x="24" y="334"><tspan fill="#7ee787">$</tspan> curlfmt --check docs/ &amp;&amp; echo clean</text>
+    <text x="24" y="364">docs/api.md: needs formatting</text>
+    <text x="24" y="394"><tspan fill="#7ee787">$</tspan> curlfmt -w --fix docs/ <tspan fill="#8b949e"># rewrites in place, applying the safe fixes</tspan></text>
+  </g>
+</svg>
